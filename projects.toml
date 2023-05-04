@@ -1,0 +1,81 @@
+# projects.toml file describing inputs for dream2nix
+#
+# To re-generate this file, run:
+#   nix run .#detect-projects $source
+# ... where `$source` points to the source of your project.
+#
+# If the local flake is unavailable, alternatively execute the app from the
+# upstream dream2nix flake:
+#   nix run github:nix-community/dream2nix#detect-projects $source
+
+[""]
+name = ""
+relPath = ""
+subsystem = "rust"
+translator = "cargo-lock"
+translators = [ "cargo-lock", "cargo-toml",]
+
+# [cozo-node]
+# name = "cozo-node"
+# relPath = "cozo-lib-nodejs"
+# subsystem = "nodejs"
+# translator = "yarn-lock"
+# translators = [ "yarn-lock", "package-json",]
+
+# [cozo-web]
+# name = "cozo-web"
+# relPath = "cozo-lib-wasm/wasm-react-demo"
+# subsystem = "nodejs"
+# translator = "yarn-lock"
+# translators = [ "yarn-lock", "package-json",]
+
+["".subsystemInfo]
+workspaceMembers = [ "cozo-core", "cozorocks", "cozo-bin", "cozo-lib-c", "cozo-lib-java", "cozo-lib-wasm", "cozo-lib-swift", "cozo-lib-python", "cozo-lib-nodejs",]
+[["".subsystemInfo.crates]]
+name = "cozo-bin"
+relPath = "cozo-bin"
+version = "0.7.0"
+
+[["".subsystemInfo.crates]]
+name = "cozo"
+relPath = "cozo-core"
+version = "0.7.0"
+
+# [["".subsystemInfo.crates]]
+# name = "cozo_c"
+# relPath = "cozo-lib-c"
+# version = "0.7.0"
+
+# [["".subsystemInfo.crates]]
+# name = "cozo_java"
+# relPath = "cozo-lib-java"
+# version = "0.7.0"
+
+# [["".subsystemInfo.crates]]
+# name = "cozo-node"
+# relPath = "cozo-lib-nodejs"
+# version = "0.7.0"
+
+# [["".subsystemInfo.crates]]
+# name = "cozo_py"
+# relPath = "cozo-lib-python"
+# version = "0.7.0"
+
+# [["".subsystemInfo.crates]]
+# name = "cozo-swift"
+# relPath = "cozo-lib-swift"
+# version = "0.7.0"
+
+# [["".subsystemInfo.crates]]
+# name = "cozo-lib-wasm"
+# relPath = "cozo-lib-wasm"
+# version = "0.7.0"
+
+[["".subsystemInfo.crates]]
+name = "cozorocks"
+relPath = "cozorocks"
+version = "0.1.7"
+
+# [cozo-node.subsystemInfo]
+
+# [cozo-web.subsystemInfo]
